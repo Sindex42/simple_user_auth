@@ -17,4 +17,8 @@ class User
       nil
     end
   end
+
+  def self.exists?(email)
+    user = first(email: email) ? true : false
+  end
 end
