@@ -16,12 +16,13 @@ describe User do
   end
 
   describe '#exists?' do
-    it 'checks to see if the user exists' do
-      expect(User.exists?('test@test.com')).to eq true
+    it 'checks to see if the user email is unique' do
+      expect(user.valid?).to eq true
     end
 
+  let!(:user2) { User.create(email: 'test@test.com', password: 'secret123')}
     it "checks to see if the user doesn't exist" do
-      expect(User.exists?('wrong@email.com')).to eq false
+      expect(user2.valid?).to eq false
     end
   end
 end

@@ -17,8 +17,4 @@ class User
       nil
     end
   end
-
-  def self.exists?(email)
-    first(email: email) ? true : false
-  end
 end
