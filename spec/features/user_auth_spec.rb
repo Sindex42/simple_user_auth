@@ -10,7 +10,7 @@ RSpec.feature 'User Authentication' do
 
     scenario "A user can't sign up twice with the same e-mail address" do
       signup
-      expect(page).to have_content "user name already exists"
+      expect(page).to have_content "Error, email already exists"
     end
   end
 
