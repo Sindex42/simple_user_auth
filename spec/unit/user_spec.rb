@@ -9,5 +9,9 @@ describe User do
     it "returns nil if wrong password" do
       expect(User.authenticate('test@test.com', '123')).to eq nil
     end
+
+    it 'returns the user if user exists and password is correct' do
+      expect(User.authenticate('test@test.com', 'secret123')).to eq user
+    end
   end
 end
