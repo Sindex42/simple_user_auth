@@ -1,7 +1,8 @@
 describe User do
-  let!(:user) { User.create(email: 'test@test.com', password: 'secret123')}
-  let(:user2) { User.create(email: 'test@test.com', password: 'secret123')}
-  let(:user_short) {User.create(email: 'short@password.com', password: 'a')}
+  let!(:user) { User.create(email: 'test@test.com', password: 'secret123') }
+  let(:user_again) { User.create(email: 'test@test.com', password: 'secret123') }
+  let(:user_short) {User.create(email: 'short@password.com', password: 'a') }
+
   describe '#authenticate' do
     it "returns nil if user doesn't exist" do
       expect(User.authenticate('wrong@email.com', 'wrongpassword')).to eq nil
@@ -22,7 +23,7 @@ describe User do
     end
 
     it "checks to see if the user is unique" do
-      expect(user2.valid?).to eq false
+      expect(user_again.valid?).to eq false
     end
   end
 end
