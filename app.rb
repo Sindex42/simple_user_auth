@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] = 'development'
 
+require 'pry'
 require 'sinatra/base'
 require './config/data_mapper'
 
@@ -28,6 +29,7 @@ class UserAuth < Sinatra::Base
   end
 
   post '/signup' do
+    redirect '/error' if params[:password].length < 6
     user = User.create(email: params[:email], password: params[:password])
     redirect '/error' unless user.valid?
 

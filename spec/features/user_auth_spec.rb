@@ -15,10 +15,10 @@ RSpec.feature 'User Authentication' do
 
     scenario "A user's password has to be at least 6 characters long" do
       visit '/'
-      click_on 'Sign in'
+      click_on 'Sign up'
       fill_in :email, with: 'test@test.com'
       fill_in :password, with: 'short'
-      click_button 'Sign in'
+      click_button 'Sign up'
       expect(page).to have_content "Error, email or password invalid"
     end
   end
